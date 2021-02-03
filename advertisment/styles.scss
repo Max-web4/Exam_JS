@@ -1,0 +1,40 @@
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker");
+
+.container {
+  background: url(../img/1777476.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  color: #373809;
+  padding-left: 80px;
+
+  svg {
+    max-width: 45rem;
+    width: 100%;
+    height: auto;
+    fill: none;
+    stroke: rgb(0, 20, 204);
+    stroke-width: 4;
+    filter: invert(18%) sepia(9%) saturate(6588%) hue-rotate(33deg)
+      brightness(200%) contrast(200%);
+
+    tspan > tspan {
+      stroke-dasharray: 1500;
+      stroke-dashoffset: -1500;
+
+      @for $i from 1 through 16 {
+        &:nth-of-type(#{$i}) {
+          animation: draw 300ms #{$i * 150}ms forwards;
+        }
+      }
+    }
+  }
+}
+
+@keyframes draw {
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
